@@ -32,11 +32,13 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.altura = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Longitud = new System.Windows.Forms.RadioButton();
             this.Bonito = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.altura = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +86,34 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(116, 114);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(98, 17);
+            this.radioButton1.TabIndex = 12;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Dime si soy alto";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // altura
+            // 
+            this.altura.Location = new System.Drawing.Point(116, 150);
+            this.altura.Name = "altura";
+            this.altura.Size = new System.Drawing.Size(100, 20);
+            this.altura.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 144);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Altura";
             // 
             // Longitud
             // 
@@ -108,41 +137,36 @@
             this.Bonito.Text = "Dime si mi nombre es bonito";
             this.Bonito.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 25);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Altura";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F);
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 80);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Conectar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
-            // altura
+            // button3
             // 
-            this.altura.Location = new System.Drawing.Point(116, 150);
-            this.altura.Name = "altura";
-            this.altura.Size = new System.Drawing.Size(100, 20);
-            this.altura.TabIndex = 11;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(116, 114);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(98, 17);
-            this.radioButton1.TabIndex = 12;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Dime si soy alto";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F);
+            this.button3.Location = new System.Drawing.Point(12, 438);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(230, 78);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Desconectar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 562);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -164,6 +188,8 @@
         private System.Windows.Forms.TextBox altura;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }
 

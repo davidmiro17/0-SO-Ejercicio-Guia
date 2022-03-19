@@ -22,26 +22,40 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
 
-           
+
         }
 
-   
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            //al que deseamos conectarnos
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que queremos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
             IPEndPoint ipep = new IPEndPoint(direc, 9050);
 
-
-            //Creamos el socket 
+            //Creamos el socket
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                server.Connect(ipep);//Intentamos conectar el socket
+                server.Connect(ipep);
                 this.BackColor = Color.Green;
-             
+                MessageBox.Show("Conectado");
+
+
+            }
+            catch (SocketException ex)
+            {
+                //Si hay excepcion imprimimos error y salimos del programa con el return
+                MessageBox.Show("No he podido conectar con el servidor");
+                return;
+            }
+
+
+        }
+
+
+
+            private void button2_Click(object sender, EventArgs e)
+            {
 
                 if (Longitud.Checked)
                 {
@@ -57,6 +71,7 @@ namespace WindowsFormsApplication1
                     mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
                     MessageBox.Show("La longitud de tu nombre es: " + mensaje);
                 }
+
                 else if (Bonito.Checked)
                 {
                     // Quiere saber si el nombre es bonito
@@ -90,67 +105,74 @@ namespace WindowsFormsApplication1
                     byte[] msg2 = new byte[80];
                     server.Receive(msg2);
                     mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+                
+                
+                 if (mensaje == "eres alto")
+                    MessageBox.Show("Eres alto.");
+                 else
+                    MessageBox.Show("No eres alto. Lo siento.");
 
 
 
-                    if (mensaje == "eres alto")
-                        MessageBox.Show("Eres alto.");
-                    else
-                        MessageBox.Show("No eres alto. Lo siento.");
-
-
-                }
-
-
-
-
-                // Se terminó el servicio. 
-                // Nos desconectamos
-                this.BackColor = Color.Gray;
-                server.Shutdown(SocketShutdown.Both);
-                server.Close();
 
 
 
             }
-            catch (SocketException )
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+            }
+
+
+
+            private void button3_Click(object sender, EventArgs e)
             {
-                //Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                return;
-            } 
+               //Mensaje de desconexión
+               string mensaje = "0/";
 
-          
+               byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+               server.Send(msg);
 
-    
-          
-          
+               //Nos desconectamos
+               this.BackColor = Color.Gray;
+               server.Shutdown(SocketShutdown.Both);
+               server.Close();
 
-        }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
+            }
+
+
+
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
+
+
+
+
+
+
+
+
     }
-}
+
+
